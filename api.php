@@ -97,7 +97,7 @@ $time = $time[1] + $time[0];
 $endtime = $time;
 $totaltime = ($endtime - $begintime);
 
-print_r ($header);
+//print_r ($header);
 
 echo 'API call took ' .$totaltime. ' seconds.';
 
