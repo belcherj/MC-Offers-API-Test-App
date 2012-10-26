@@ -1,6 +1,6 @@
 <?php
 header ("Cache-Control: no-cache");
-$sandbox = false;
+$sandbox = true;
  //-----------------REPLACE WITH YOUR CLIENT KEYS----------------------------
 $okey=$sandbox?"":"";
 //------------------REPLACE THIS KEY WITH YOUR OWN--------------------------
@@ -15,9 +15,9 @@ include_once 'keys.php';
 
 //-----------------------GET PARAMETERS---------------------------------------
 $callType = "offer";
-$postalCode = ($_GET["PostalCode"]!="")?$_GET["PostalCode"]:"19107";
-$lat = ($_GET["lat"]!="")?$_GET["lat"]:"39.952473";
-$lng = ($_GET["lng"]!="")?$_GET["lng"]:"-75.164106";
+$postalCode = ($_GET["PostalCode"]!="")?$_GET["PostalCode"]:"19123";
+$lat = ($_GET["lat"]!="")?$_GET["lat"]:"39.9643";
+$lng = ($_GET["lng"]!="")?$_GET["lng"]:"-75.1444";
 $count = ($_GET["count"]!="")?$_GET["count"]:"200";
 
 //----------------------NONCE/TIMESTAMP CREATION------------------------------
@@ -36,13 +36,15 @@ if ($callType == 'offer') {
     $req_params.="&Latitude=" . $lat;
     $req_params.="&Longitude=" . $lng;
     $req_params.="&PageLength=" . $count;
+    $req_params.="&SessionKey=" . session_id();
     //$req_params.="&PostalCode=63368";
     //$req_params.="&Latitude=39.939225";
     //$req_params.="&Longitude=75.180352";
+    $req_params.="&Arts%20%26%20Entertainment";
     //$req_params.="&Category=Food%20%26%20Drink";
     $req_params.="&PageOffset=0";
     //$req_params.="&PageLength=200";
-    $req_params.="&Format=XML";
+    $req_params.="&Format=XML HTTP/1.1";
     $req_params=substr($req_params,1);
 }
 
