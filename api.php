@@ -40,11 +40,11 @@ if ($callType == 'offer') {
     //$req_params.="&PostalCode=63368";
     //$req_params.="&Latitude=39.939225";
     //$req_params.="&Longitude=75.180352";
-    $req_params.="&Arts%20%26%20Entertainment";
+    $req_params.="&Category=Arts%20%26%20Entertainment";
     //$req_params.="&Category=Food%20%26%20Drink";
     $req_params.="&PageOffset=0";
     //$req_params.="&PageLength=200";
-    $req_params.="&Format=XML HTTP/1.1";
+    $req_params.="&Format=XML";
     $req_params=substr($req_params,1);
 }
 
