@@ -71,7 +71,13 @@
             </div><!--/row-->
         </div>
 
-
+<div id="pleaseWait"
+ style="position: absolute; display: none;
+        left: 277px; top: 500px; width: 240px; height: 60px;
+        background-color: #CCFFFF; border: 2px solid black;
+        text-align: center;">
+  <p>&amp;nbsp;<br><b>One minute, please...</b><br>&amp;nbsp;</p>
+</div>
 
 
 
@@ -88,11 +94,13 @@
                 $('#postal-code-submit').on('click', function()
                 {
                     $("#output-div").html('');
+                    $('#pleaseWait').show();
                     $.get(
                     '/api.php?CallType=offer&PostalCode='+ $('#postal-code').attr("value") + '&lat='+ $('#lat').attr("value") + '&lng='+ $('#lng').attr("value")  + '&count='+ $('#count').attr("value"),
                     {language: "php", version: 5},
                     function(responseText){
                         $("#output-div").html('<textarea style="height:300px; width:600px;">'+responseText+'</textarea>');
+                        $('#pleaseWait').hide();
                     }, "html"
             
                 );
