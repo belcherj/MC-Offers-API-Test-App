@@ -1,6 +1,6 @@
 <?php
 header ("Cache-Control: no-cache");
-$sandbox = true;
+$sandbox = false;
  //-----------------REPLACE WITH YOUR CLIENT KEYS----------------------------
 $okey=$sandbox?"":"";
 //------------------REPLACE THIS KEY WITH YOUR OWN--------------------------
@@ -36,12 +36,12 @@ if ($callType == 'offer') {
     $req_params.="&Latitude=" . $lat;
     $req_params.="&Longitude=" . $lng;
     $req_params.="&PageLength=" . $count;
-    $req_params.="&SessionKey=" . session_id();
+    //$req_params.="&SessionKey=" . session_id();
     //$req_params.="&PostalCode=63368";
     //$req_params.="&Latitude=39.939225";
     //$req_params.="&Longitude=75.180352";
-    $req_params.="&Category=Arts%20%26%20Entertainment";
-    //$req_params.="&Category=Food%20%26%20Drink";
+    //$req_params.="&Category=Arts%20%26%20Entertainment";
+    $req_params.="&Category=Food%20%26%20Drink";
     $req_params.="&PageOffset=0";
     //$req_params.="&PageLength=200";
     $req_params.="&Format=XML";
@@ -101,12 +101,14 @@ $totaltime = ($endtime - $begintime);
 
 //print_r ($header);
 
-echo 'API call took ' .$totaltime. ' seconds.';
+echo 'API call took ' .$totaltime. ' seconds.
+';
 
 $header_size = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
 $header = substr($result, 0, $header_size);
 
-echo $call;
+echo $call . '
+';
 
 curl_close($ch);
 header ("Content-Type:text/xml"); 
