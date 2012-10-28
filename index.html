@@ -45,7 +45,7 @@
         <div class="container-fluid">
 
             
-            <div class="row">
+            <div class="row-fluid">
                 <div class="span12">
                     <h3>MC API</h3>
 
@@ -70,13 +70,16 @@
                 </div>
             </div><!--/row-->
         </div>
+<div id="pleaseWait" class="modal hide">
+  <div class="modal-header">
+    <h3>API is processing</h3>
+  </div>
+  <div class="modal-body">
+    <p>Please wait while the API has time to respond</p>
+  </div>
+  <div class="modal-footer">
 
-<div id="pleaseWait"
- style="position: absolute; display: none;
-        left: 277px; top: 500px; width: 240px; height: 60px;
-        background-color: #CCFFFF; border: 2px solid black;
-        text-align: center;">
-  <p>&amp;nbsp;<br><b>One minute, please...</b><br>&amp;nbsp;</p>
+  </div>
 </div>
 
 
@@ -99,7 +102,7 @@
                     '/api.php?CallType=offer&PostalCode='+ $('#postal-code').attr("value") + '&lat='+ $('#lat').attr("value") + '&lng='+ $('#lng').attr("value")  + '&count='+ $('#count').attr("value"),
                     {language: "php", version: 5},
                     function(responseText){
-                        $("#output-div").html('<textarea style="height:300px; width:600px;">'+responseText+'</textarea>');
+                        $("#output-div").html('<textarea style="height:300px; width:100%;">'+responseText+'</textarea>');
                         $('#pleaseWait').hide();
                     }, "html"
             
